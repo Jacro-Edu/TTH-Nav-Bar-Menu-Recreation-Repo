@@ -1,0 +1,454 @@
+/* Style guide/order for CSS rulesets */
+          /* 1. Any @ Rules */
+          /* 2. Display properties (e.g. display, display flex, display grid) */
+          /* 3. Positioning properties (e.g. position, left, right, z-index, etc) */
+          /* 4. Layout & box-model properties (e.g. background, width, height, borders, padding, margins) */
+          /* 5. Typography properties (e.g. fonts, font colours, etc) */
+          /* 6. Stylistic properties (e.g. color, background-*, animation, border, etc.) */
+          /* 7. UI properties (e.g. appearance, cursor, user-select, pointer-events, etc.) */
+          /* 8. Manipulation properties (e.g. transform, filter, opacity, etc)*/
+          /* 9. Miscellaneous */
+          /* 10. Pseudo-elements */
+          /* 11. Pseudo-selectors */
+          /* 12. Modifier classes */
+          /* 13. Nested elements */
+          
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 1. Reset-------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 2. Web Fonts---------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 3. General HTML Tag Styles-------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* In this section of the stylesheet we are providing default styling for the type on the site, 
+			 setting up a default style for data tables and lists and so on. */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 4. Utility Styles----------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* For example, a class that removes the default list style for lists we're going to display as 
+			 flex items or in some other way. If you have a few styling choices you know you will want to 
+			 apply to lots of different elements */
+			
+			/* ----------------------------------------------------------------------------------- */
+   		/* 4.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Page-wide Custom Properties-------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 4.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Header Custom Properties----------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 4.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 4.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 5. Sitewide Styles---------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* Everything that is used sitewide. That might be things like the basic page 
+			 layout, the header, navigation styling, and so on. */		
+			
+			/* ----------------------------------------------------------------------------------- */
+   		/* 5.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Page-wide Custom Properties-------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 5.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Header Custom Properties----------- */
+          /* --------------------------------------- */
+
+          /* Menu- core styles and layout --------------------------------------------------------------------------------------------------------------------- */
+
+            /* Second class name applied to nav element. The nav element sits inside of the main header element on the page */
+            .menu-container {
+              position: fixed;
+              top: 0;
+              left: 0;
+              /* right 0 to correct bug */
+              right: 0;
+/*              z-index: 2;*/
+            }
+            
+            /* Div which sits inside of the nav element. Separate to the logo and hamburger menu button 
+            holds all menu items including text and anchor tags and empty divs to place in hamburger menu icon */
+            .menu {
+/*              z-index: 1; */
+            }
+          
+            /* Sets up flex container for menu and ensures all descendent elements are not visible on initial page load */
+            .menu-container .menu {
+              display: flex;
+              align-content: center;
+              justify-content: center;
+              
+              position: fixed;
+              top: 0;
+              left: 0;
+              
+              width: 100%;
+              height: 100%;
+              
+              visibility: hidden;
+              overflow: hidden;  
+            }
+            
+            /* Inner div to ensure menu covers entire viewport size upon menu toggle being checked */
+            .menu-container .menu > div {
+              display: flex;
+              flex: none;
+              align-items: start;
+              justify-content: center;
+              
+              background: var(--header-and-menu-color);
+              width: 100vw;
+              height: 100vh;
+              
+              /* Initial menu scale on on X-axis is 1, Y-axis is 0. When scale is increased on toggle, scale increases to 1 on Y-axis (full size)  */
+              /* Used to ensure menu transitions down in a flat line, rather than in a circular fashion on the X-axis */
+              transform: scale(1, 0);
+            }
+            
+            /* Container of the menu unordered list */
+            .menu-container .menu > div > div {
+              max-width: 90vw;
+              max-height: 100vh;
+              margin-top: 2.5rem;
+              
+              text-align: center;
+              
+              opacity: 0;
+            }
+            
+            /* Set size and style of list items on menu */
+            .menu-container .menu > div > div > ul > li {
+              width: 200px;
+              
+              list-style: none;
+              
+              color: var(--menu-text-color);
+              font-size: 1.2rem;
+              font-weight: 500;
+              line-height: 40px;  
+            }
+            
+            /* Styling for menu anchor tags */
+            .menu-container .menu > div > div > ul > li > a {
+              color: inherit;
+              
+              text-decoration: none;
+            }
+
+            .header-website-logo-anchor {
+              position: relative;
+              z-index: 2;
+            }
+
+      /* Menu toggle- Containers, styling, layout and positioning----------------------------------------------------------------------------------------- */
+      
+        /* Targets the input element for activating the menu drop down. Sets position and size */
+        .menu-container .menu-toggler {
+          position: absolute;
+          top: 0;
+          right: 0%;
+          /* NOTE 1: z-index of this input HAS to be larger than that of the visual menu icon. Both positioned absolutely on top of each other, however it is this toggle that needs to be on top */
+          /* despite it not being visible, in order for it to be clickable by the user and therefore for the menu to appear upon being triggered. See comments below/ */
+          /* NOTE 2: z-index of toggle has to be higher than that of main logo on header: class of .header-website-logo-anchor */
+          /* otherwise that element will sit on top of the toggle within context of the local stack, and because margin auto is used on the SVG within, it means clicking toggle will actually click home link instead */
+          z-index: 3;
+          
+          width: 40px;
+          height: 50px;
+          
+          cursor: pointer;
+            
+          opacity: 0;
+        }
+      
+        /* For empty div that will hold menu logo/three lines */
+        /* Positioned absolutely so that this hamburger logo sits exactly over the same sized input */
+        .menu-container .hamburger {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          position: absolute;
+          top: 0;
+          right: 0%;
+          /* z-index is a lower value than the toggler button as the visual component/lines underneath in z-index for clickable toggler to be sat invisible on top. Both elements on the same nested level in HTML */
+          /* Both this menu container and the toggler are within the same stacking context */
+          z-index: 1;
+          
+          width: 40px;
+          height: 50px;
+          padding: 0.25rem;
+          
+          background: var(--header-and-menu-color);
+        }
+      
+      
+      /* Hamburger lines ---------------------------------------------------------------------------------------------------------------------------------- */
+      
+        /* Hamburger lines- Creates only the central line by setting div size and adding background colour */
+        .menu-container .hamburger > div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          position: relative;
+          
+          width: 100%;
+          height: 3px;
+          
+          background-color: #fff;
+          
+          transition: all 0.4s ease;
+        }
+        
+        /* Hamburger lines- Create the Top & bottom lines for hamburger symbol. These two lines will sit on top of each other above the central line
+         unless rule underneath is used to bring down line number 3 to sit below central line */
+        .menu-container .hamburger > div:before,
+        .menu-container .hamburger > div:after {
+          position: absolute;
+          top: -10px;
+/*          z-index: 1;*/
+            
+          width: 100%;
+          height: 3px;
+          
+          background: inherit;
+          
+          content: '';
+        }
+        
+        /* Hamburger lines- Moves bottom line down into place by adjusting the position */
+        .menu-container .hamburger > div:after {
+          top: 10px; 
+        }
+      
+      /* Toggler animate ----------------------------------------------------------------------------------------------------------------------------------- */
+        .menu-container .menu-toggler:checked + .hamburger > div {
+          transform: rotate(135deg);
+        }
+      
+      /* Turn lines into X -------------------------------------------------------------------------------------------------------------------------------- */
+      
+        /* puts top and bottom hamburger lines behind central line on symbol, then turns those two lines - top & bottom sitting 
+        over each other-  rotate them by 90 deg to make X shape when the input is checked, i.e. menu is activated*/
+        .menu-container .menu-toggler:checked + .hamburger > div:before,
+        .menu-container .menu-toggler:checked + .hamburger > div:after {
+          top: 0;
+          
+          transform: rotate(90deg);
+        }
+        
+        /* Rotate X shape on hover when checked- notice selector! */
+        .menu-container .menu-toggler:checked:hover + .hamburger > div {
+          transform: rotate(225deg); 
+        }
+        
+      /* Menu- Show menu via scale and transition animation on toggle click--------------------------------------------------------------------------------- */
+      
+        /* When toggle is checked make menu visible */
+        .menu-container .menu-toggler:checked ~ .menu {  
+          visibility: visible; 
+/*          z-index: 4;*/
+        }
+
+/*
+        .menu-container .menu-toggler:checked {
+          z-index: 5; 
+        }
+
+        .menu-toggler:checked ~ .hamburger {
+          z-index: 4; 
+        }
+*/
+
+
+        
+        /* Transform settings for menu. Notice that only Y axis scale is altered, and origin of animation is from top-center */
+        .menu-container .menu-toggler:checked ~ .menu > div {
+          transform-origin: top center;
+          transform: scale(1, 1);
+          transition-property: transform;
+          transition-duration: var(--menu-speed);
+          transition-timing-function: ease-out;
+          transition-delay: 0s;
+        }
+        
+        .menu-container .menu-toggler:checked ~ .menu > div > div {
+          opacity: 1;
+          transition: opacity 0.2s ease;
+        }
+
+        /* Hide main header/logo on toggle press to prevent duplicates on screen at once */
+        .menu-toggler:checked ~ .header-website-logo-anchor {
+          z-index: 0;
+        }
+
+      /*Menu- remove menu animations on toggle click ------------------------------------------------------------------------------------------------------ */
+      
+        .menu-container .menu-toggler:not(:checked) ~ .menu {
+          visibility: visible; 
+        }
+        
+        /* Reverses animation and scaling when menu toggle is unchecked */
+        .menu-container .menu-toggler:not(:checked) ~ .menu > div {
+          transform-origin: top center;
+          transform: scale(1, 0);
+          transition-property: transform;
+          transition-duration: var(--menu-speed);
+          transition-timing-function: ease-out;
+          transition-delay: 0s;
+        }
+        
+        .menu-container .menu-toggler:not(:checked) ~ .menu > div > div {
+          opacity: 1;
+          transition: opacity 0.2s ease;
+        }
+      
+        /* Bring logo back into view when menu is closed */
+        .menu-toggler:not(:checked) ~ .header-website-logo-anchor {
+          z-index: 2;
+        }
+      
+      /* CSS ruleset to make links from 'workspaces' and below smaller ----------------------------------------------------------------------------- */
+        .menu-container .menu > div > div > ul > li > .link-option-smaller {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+      
+      /* Add specific border lines to particular links in drop menu to help visually section off the menu and help visual understanding for the user */
+        .menu-container .menu > div > div > ul > li:nth-child(2) {
+          margin-top: 15px;
+          padding-top: 15px;
+          border-top: 2px var(--menu-line-color) solid;
+        }
+        
+        .menu-container .menu > div > div > ul > li:nth-child(7) {
+          margin-top: 15px;
+          margin-bottom: 15px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          border-top: 2px var(--menu-line-color) solid;
+          border-bottom: 2px var(--menu-line-color) solid;
+        }
+      
+      /* Style the 'Home' text in the list of the menu options below the icon --------------------------------------------------------------------- */
+        .home-text {
+          display: block;
+          padding-top: 15px; 
+        }
+			
+			/* ----------------------------------------------------------------------------------- */
+			/* 5.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 5.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 6. Specific Component Styles------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* Include CSS for specific things, broken down by the context, page, or 
+			 even component in which they are used. */
+
+
+			/* ----------------------------------------------------------------------------------- */
+   		/* 6.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Page-wide Custom Properties-------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 6.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Header Custom Properties----------- */
+          /* --------------------------------------- */
+			
+			/* ----------------------------------------------------------------------------------- */
+			/* 6.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 6.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 7. Media Queries------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+			
+			/* ----------------------------------------------------------------------------------- */
+   		/* 7.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Page-wide Custom Properties-------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 7.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Header Custom Properties----------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 7.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 7.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

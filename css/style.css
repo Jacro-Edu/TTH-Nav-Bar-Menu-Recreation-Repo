@@ -1,0 +1,424 @@
+/* Style guide/order for CSS rulesets */
+          /* 1. Any @ Rules */
+          /* 2. Display properties (e.g. display, display flex, display grid) */
+          /* 3. Positioning properties (e.g. position, left, right, z-index, etc) */
+          /* 4. Layout & box-model properties (e.g. background, width, height, borders, padding, margins) */
+          /* 5. Typography properties (e.g. fonts, font colours, etc) */
+          /* 6. Stylistic properties (e.g. color, background-*, animation, border, etc.) */
+          /* 7. UI properties (e.g. appearance, cursor, user-select, pointer-events, etc.) */
+          /* 8. Manipulation properties (e.g. transform, filter, opacity, etc)*/
+          /* 9. Miscellaneous */
+          /* 10. Pseudo-elements */
+          /* 11. Pseudo-selectors */
+          /* 12. Modifier classes */
+          /* 13. Nested elements */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 1. Reset-------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+  :root {
+    font-size: 16px; 
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  /* Menu list padding reset to resolve left padding issue of 40px which I can't find the cause of */
+  .menu-nav-list {
+    padding-left: 0; 
+  }
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 2. Web Fonts---------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 3. General HTML Tag Styles-------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* In this section of the stylesheet we are providing default styling for the type on the site, 
+			 setting up a default style for data tables and lists and so on. */
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; 
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+  }
+
+  div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    font-family: inherit; 
+  }
+
+  h1, 
+  h2, 
+  h3, 
+  h4, 
+  h5, 
+  h6 {
+    display: block;
+   
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  
+  a:link {
+  }
+  
+  a:visited {
+    color: var(--text-black);
+  }
+  
+  a:focus {
+  }
+  
+  a:hover {
+  }
+  
+  a:active {
+  }
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 4. Utility Styles----------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* For example, a class that removes the default list style for lists we're going to display as 
+			 flex items or in some other way. If you have a few styling choices you know you will want to 
+			 apply to lots of different elements */
+			
+			/* ----------------------------------------------------------------------------------- */
+   		/* 4.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+        /* CSS Page-wide Custom Properties-------- */
+          :root {
+           --page-background-color: #d4d9dd;
+           --text-black: #000;
+          }
+        /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 4.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Header Custom Properties----------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 4.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 4.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 5. Sitewide Styles---------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* Everything that is used sitewide. That might be things like the basic page 
+			 layout, the header, navigation styling, and so on. */		
+			
+			/* ----------------------------------------------------------------------------------- */
+   		/* 5.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+          /* CSS Page-wide Custom Properties-------- */
+            .page-container {
+              background-color: var(--page-background-color);
+            }
+          /* --------------------------------------- */
+
+          .page-container {
+            position: relative;
+    
+            /* Ensure height of page always is at least height of device to prevent issues with whitespace underneath the footer */
+            min-height: 100vh;
+          }
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 5.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+          /* CSS Header Custom properties---------- */
+            .header-top-level {
+              --svg-logo-color: #5fcf80;
+              --header-and-menu-color: #3e474f; 
+              --menu-speed: 0.4s;
+              --menu-text-color: #adb6b9;
+              --menu-line-color: rgba(255,255,255,0.07);
+            }
+        /*--------------------------------------- */
+  
+        /* class name for main page header */
+        .header-top-level {
+          height: 50px;
+
+          background-color: var(--header-and-menu-color);          
+        }
+
+        /* Class name for nav element    */
+        .header-nav {
+          height: 100%;
+          width: 90%;
+          margin: auto;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        /* SVG for website logo */
+        .svg-team-treehouse-logo {
+          display: block;
+  
+          position: relative;
+          top: 9px;
+          
+          width: 30px;
+          height: 32px;
+          margin: auto;
+  
+          fill: var(--svg-logo-color); 
+        }
+
+        .hamburger-menu-button {
+          width: 30px;
+          height: 32px;
+        }
+			
+			/* ----------------------------------------------------------------------------------- */
+			/* 5.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+            .main-container {
+              --banner-blue: #3659a2;
+              --titles-text-color: #4b5658;
+            }
+      
+          /* --------------------------------------- */
+      
+        .card-container-div {
+          position: relative;
+        }
+      
+        .main-container {
+          /* Create space between main content area and header/footer */
+
+          position: relative;
+
+          width: 100%;
+          padding-top: 15px;
+          padding-bottom: 3rem;
+        }
+
+        .card-container-div {
+          margin: auto;
+          width: 90%;
+    
+          background-color: #fff;
+  
+          /* 4x Rounded corners on card boxes. Must apply to all 4 corners (i.e. including top) to avoid top left and 
+          top right corners peeking out from underneath rounded blue banner which sits on top */
+          border-radius: 0.25rem;
+  
+          box-shadow: 0 2px 0 0 rgba(0,0,0,0.1);
+        }
+
+        .card-link {
+          /* Anchor tags will contain all card contents inside. Makes all of the card into clickable link */
+          display: block;
+  
+          margin: 0;
+          padding: 0;
+
+        }
+
+        .card-top-banner {
+          height: 56px;
+          margin-bottom: 1.5rem;
+  
+          background-color: var(--banner-blue);
+  
+          /* Rounded corners on top-left & top-right of blue banner. This div sits at top of the containing element
+          and so needs this styling applied to give entire card rounded corners */
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+         }
+
+        .card-type-icon {
+          /* SVG icon for course type- i.e. Book logo */
+          position: relative;
+          left: 32px;
+  
+          width: 19px; 
+          height: 17px;
+          margin-bottom: -19.5px;
+  
+          fill: #fff;
+        }
+
+        .card-estimate {
+          /* Text which has estimate of how long the course will take to complete e.g. 90mins/1hr 50m, or 'Complete' */
+          position: relative;
+          bottom: -16px;
+          left: 210px;
+  
+          font-size: 0.9rem;
+          font-weight: 600;
+  
+          color: #fff;
+        }
+
+        .card-info-container {
+          /* Container for majority of info on course, e.g. title, description */
+          width: 80%; 
+          margin: auto;
+          padding-bottom: 2.5rem;
+      
+          color: var(--titles-text-color);  
+         }
+
+        .card-type {
+          /* Text describing course/card type, e.g. course, workshop, etc */
+          margin: 0 0 0.5rem 0;  
+  
+          font-size: 0.9rem;
+          color: var(--titles-text-color);      
+        }
+
+        .card-title {
+          /* Title of the course/card */
+          margin: 0 0 1rem 0; 
+  
+          font-size: 1.1rem;
+          letter-spacing: 0.025rem;
+          font-weight: 600;
+         }
+        
+        .card-description {
+          /* Description of the card/course */
+          margin: 0 0 2.5rem 0;
+          max-height: 6rem;
+          
+          font-size: 0.9rem;
+          color: #6f6f6f;
+  
+          overflow: hidden;
+        }
+
+        .card-status-title {
+        /* Text which states how many points have been achieved from completing this card/course. Real world example would alternatively
+        show tags for core content type e.g. CSS, HTML and difficulty level, e.g. beginner, advanced. */
+        /* This and .card-complete-icon both sit in containing div with class of 'card-status' */
+          font-weight: 500;
+          color: var(--titles-text-color);
+        }
+
+        .card-complete-icon {
+          /* SVG for tick to show that this card/course is completed */
+          width: 16px;
+          height: 14px;
+  
+          fill: var(--banner-blue);
+        }
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 5.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+      /*
+        .footer-container-div {
+  
+          position: absolute;
+          bottom: 0;
+  
+          width: 100%;
+          height: 10rem;
+  
+          background-color: #f6f9fa;
+      */
+      
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 6. Specific Component Styles------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+		/* Include CSS for specific things, broken down by the context, page, or 
+			 even component in which they are used. */
+
+
+			/* ----------------------------------------------------------------------------------- */
+   		/* 6.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Page-wide Custom Properties-------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 6.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Header Custom Properties----------- */
+          /* --------------------------------------- */
+			
+			/* ----------------------------------------------------------------------------------- */
+			/* 6.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 6.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* || 7. Media Queries------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+			
+			/* ----------------------------------------------------------------------------------- */
+   		/* 7.1 Page Wide/Multiple Areas ------------------------------------------------------ */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Page-wide Custom Properties-------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 7.2 Header------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Header Custom Properties----------- */
+          /* --------------------------------------- */
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 7.3 Main--------------------------------------------------------------------------- */
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Main Custom Properties------------- */
+          /* --------------------------------------- */
+
+      /*NOTE: move below to media queries once done- only applicable in desktop/laptop scenarios due to type of psuedo selector*/
+      /*Why does fill for SVG only work when targetting it directly, rather than just indirectly using second descendant selector and the text inside???*/
+      /*
+        .card-container-div:hover .card-info-container,
+        .card-container-div:hover .card-status * {
+        .card-container-div:hover .card-complete-icon {
+          color: #808080;
+          fill: #738dbd;
+        }
+
+        .card-container-div:hover {
+          box-shadow: 0 2px 0 0 rgba(0,0,0,0.4);
+        }
+      */
+
+      
+			/* ----------------------------------------------------------------------------------- */
+			/* 7.4 Footer------------------------------------------------------------------------- */	
+			/* ----------------------------------------------------------------------------------- */
+					/* CSS Footer Custom Properties----------- */
+          /* --------------------------------------- */
+
+
+

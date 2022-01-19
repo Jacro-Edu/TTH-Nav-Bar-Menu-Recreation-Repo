@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <script type="text/javascript" src="javaScript/animation.js"></script>
+    <title>Front End Web Development Track</title>
+  </head>
+  
+  
+  <body>
+    <div class="page-container">
+ 
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- HEADER ----------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+      
+      <header class="header-top-level">
+        <nav class="header-nav menu-container">
+          <!-- Hamburger menu- input toggle to create pseudo states of checked/unchecked to make menu visbible/invisible on click. Input toggle is positioned absolutely          -->
+          <input type="checkbox" class="menu-toggler" id="toggleBtn">
+          <!-- 'hamburger' div is positioned absolutely directly above the input element. This div contains all three horizontal lines of the hamburger menu logo. Flex container           -->
+          <div class="hamburger">
+            <!-- This empty div has a single 'line'/block created inside of it using set width & height and a background colour in menu.css. Setup as flex container      -->
+            <!-- Pseudo elements ::before and ::after in menu.css allow us to put accompanying lines above and below the central line in the hamburger menu icon. Positioned absolutely     -->
+            <div>
+            </div>
+          </div>
+          <!-- Logo as home link when hamburger menu is not toggled to 'on' -->
+          <a class="header-website-logo-anchor" href="other-pages/home.html">
+            <svg class="svg-icon svg-team-treehouse-logo" viewBox="0 0 30 32" alt="Team Treehouse Logo" preserveAspectRatio="xMinYMin meet"> <path d="M26.5 5.9c-1.1-0.6-2.8 0.4-3.9 2.2l-1.9 3.2c-0.7 1.3-0.6 3 0.3 4.2l0.1 0.1c0.9 1.2 2.1 2.4 2.4 2.8 0.2 0.2 0.4 0.5 0.5 0.9 0.3 1.1-0.3 2.3-1.5 2.6 -1.1 0.3-2.3-0.3-2.7-1.5 -0.1-0.3-0.1-0.6-0.1-0.8 0.1-0.5-0.1-1.2-0.8-2 -0.7-0.7-2.1 0.7-2.5 2.1v0.1c-0.4 1.4-0.7 2.7-0.6 2.8 0.1 0.1 0.1 0.1 0.1 0.2 0.6 1.2 0.2 2.6-1 3.2 -1.2 0.6-2.7 0.2-3.3-1s-0.2-2.6 1-3.2c0.1 0 0.1-0.1 0.2-0.1 0.1 0 0.3-0.6 0.6-1.4 0.2-0.7 0.3-1 0.4-1.3 0.1-0.4 0.3-1.4 0.2-1.8 -0.1-0.5-0.6-0.5-1.2-0.2 -0.3 0.2-0.9 0.7-1.1 0.9 -0.5 0.4-0.9 1-1.1 1.5 -0.1 0.2-0.3 0.5-0.5 0.7 -0.9 0.7-2.3 0.6-3-0.3 -0.7-0.9-0.6-2.2 0.3-3 0.3-0.2 0.6-0.4 0.9-0.4 0.5-0.1 2.4-1.2 3.5-2 0.2-0.1 0.5-0.4 0.6-0.5 0.3-0.4 0-0.7-0.3-0.7 -0.9 0.1-1.9 0.2-2.1 0.5 -0.1 0.1-0.2 0.3-0.4 0.4 -0.9 0.6-2.1 0.4-2.7-0.4 -0.6-0.8-0.4-2 0.4-2.6 0.4-0.3 0.8-0.4 1.2-0.4 0.7 0 2.5 0.4 4 0.1l0.4-0.1c1.5-0.3 3.3-1.6 4-2.9 0 0 0.7-1.2 1.6-2.7 0.9-1.5 0.8-3.2-0.1-3.7l-1.7-1c-0.9-0.5-2.3-0.5-3.2 0L1.6 7C0.7 7.5 0 8.6 0 9.6v12.8c0 1 0.7 2.2 1.6 2.7l11.9 6.5c0.9 0.5 2.3 0.5 3.2 0l11.8-6.5c0.9-0.5 1.6-1.7 1.6-2.7V9.6c0-1-0.7-2.2-1.6-2.7C26.5 5.9 28.5 7 26.5 5.9z"></path>
+            </svg>
+          </a>
+          <!-- Holds menu items-------------------- -->
+          <div class="menu">
+            <div>
+              <div>
+                <ul class=menu-nav-list>
+                  <li><a href="other-pages/home.html" class="link-option-normal">
+                    <!-- Duplicated icon and link here from above. Work around until I can figure out how to get the logo above to appear on menu activation and move up z-index layers and have 'home' text underneath -->
+                    <!-- works for now as animation/transition of menu coming down on activation is fast enough to obscure that this is a duplicated logo/anchor tag           -->
+                    <svg class="svg-icon svg-team-treehouse-logo" viewBox="0 0 30 32" alt="Team Treehouse Logo" preserveAspectRatio="xMinYMin meet"> <path d="M26.5 5.9c-1.1-0.6-2.8 0.4-3.9 2.2l-1.9 3.2c-0.7 1.3-0.6 3 0.3 4.2l0.1 0.1c0.9 1.2 2.1 2.4 2.4 2.8 0.2 0.2 0.4 0.5 0.5 0.9 0.3 1.1-0.3 2.3-1.5 2.6 -1.1 0.3-2.3-0.3-2.7-1.5 -0.1-0.3-0.1-0.6-0.1-0.8 0.1-0.5-0.1-1.2-0.8-2 -0.7-0.7-2.1 0.7-2.5 2.1v0.1c-0.4 1.4-0.7 2.7-0.6 2.8 0.1 0.1 0.1 0.1 0.1 0.2 0.6 1.2 0.2 2.6-1 3.2 -1.2 0.6-2.7 0.2-3.3-1s-0.2-2.6 1-3.2c0.1 0 0.1-0.1 0.2-0.1 0.1 0 0.3-0.6 0.6-1.4 0.2-0.7 0.3-1 0.4-1.3 0.1-0.4 0.3-1.4 0.2-1.8 -0.1-0.5-0.6-0.5-1.2-0.2 -0.3 0.2-0.9 0.7-1.1 0.9 -0.5 0.4-0.9 1-1.1 1.5 -0.1 0.2-0.3 0.5-0.5 0.7 -0.9 0.7-2.3 0.6-3-0.3 -0.7-0.9-0.6-2.2 0.3-3 0.3-0.2 0.6-0.4 0.9-0.4 0.5-0.1 2.4-1.2 3.5-2 0.2-0.1 0.5-0.4 0.6-0.5 0.3-0.4 0-0.7-0.3-0.7 -0.9 0.1-1.9 0.2-2.1 0.5 -0.1 0.1-0.2 0.3-0.4 0.4 -0.9 0.6-2.1 0.4-2.7-0.4 -0.6-0.8-0.4-2 0.4-2.6 0.4-0.3 0.8-0.4 1.2-0.4 0.7 0 2.5 0.4 4 0.1l0.4-0.1c1.5-0.3 3.3-1.6 4-2.9 0 0 0.7-1.2 1.6-2.7 0.9-1.5 0.8-3.2-0.1-3.7l-1.7-1c-0.9-0.5-2.3-0.5-3.2 0L1.6 7C0.7 7.5 0 8.6 0 9.6v12.8c0 1 0.7 2.2 1.6 2.7l11.9 6.5c0.9 0.5 2.3 0.5 3.2 0l11.8-6.5c0.9-0.5 1.6-1.7 1.6-2.7V9.6c0-1-0.7-2.2-1.6-2.7C26.5 5.9 28.5 7 26.5 5.9z"></path>
+        </svg><span class="home-text">Home</span></a></li>
+                  <li><a href="other-pages/techdegree.html" class="link-option-normal">Techdegree</a></li>
+                  <li><a href="other-pages/tracks.html" class="link-option-normal">Tracks</a></li>
+                  <li><a href="other-pages/library.html" class="link-option-normal">Library</a></li>
+                  <li><a href="other-pages/community.html" class="link-option-normal">Community</a></li>
+                  <li><a href="other-pages/support.html" class="link-option-normal">Support</a></li>
+                  <!-- These menu options have a smaller font size to break up visual design, hence different class name -->
+                  <li><a href="other-pages/workspaces.html" class="link-option-smaller">Workspaces</a></li>
+                  <li><a href="other-pages/profile.html" class="link-option-smaller">Profile</a></li>
+                  <li><a href="other-pages/notifications.html" class="link-option-smaller">Notifications</a></li>
+                  <li><a href="other-pages/settings.html" class="link-option-smaller">Settings</a></li>
+                  <li><a href="other-pages/signout.html" class="link-option-smaller">Sign Out</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </header>
+
+      
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- MAIN ----------------------------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+      
+      <main class="main-top-level">
+        <div class="main-container container ">
+             
+          
+          <div class="card-container-div" id="cardContainerDiv">
+            <!-- Anchor tag covers entirety of the course card            -->
+            <a class="card-link" href="other-pages/introduction-to-html-and-css">
+              <div class="card-top-banner">
+                <svg class="svg-icon card-type-icon" preserveAspectRatio="xMinYMin meet" viewBox="0 0 17 17">
+                 <path d="M0,1.1v13.3c0,0.6,0.5,1.1,1.1,1.2c1.9,0.2,5.5,0.6,6.8,1.5c0.1,0.1,0.2,0.2,0.3,0.3l0.4,0.4c0.2,0.2,0.6,0.2,0.8,0l0.4-0.4c0.1-0.1,0.2-0.2,0.3-0.3c1.3-1,4.9-1.4,6.8-1.5c0.6-0.1,1.1-0.6,1.1-1.2V1.1C18,0.5,17.5,0,16.9,0C14.9,0.1,11,0.5,9,1.9C7,0.5,3.1,0.1,1.1,0C0.5,0,0,0.5,0,1.1z M8,15c-2-0.9-4.5-1.2-6-1.3V2c1.8,0.1,4.5,0.6,6,1.7V15z M16,13.7c-1.5,0.1-4,0.4-6,1.3V3.7c0.6-0.5,1.5-0.8,2.4-1.1c0.8-0.2,1.6-0.4,2.4-0.5C15.2,2.1,15.6,2,16,2V13.7z"></path>
+                </svg>
+                <span class="card-estimate">Complete</span>
+              </div>
+              <div class="card-info-container">
+                <strong class="card-type">Course</strong>
+                <h3 class="card-title">Introduction to HTML and CSS</h3>
+                <p class="card-description">Get started creating web pages with HTML and CSS, the basic building blocks of web development.</p>
+            
+                <div class="card-status">
+                  <svg class="svg-icon card-complete-icon" preserveAspectRatio="XMinYMin meet" viewbox="140 0 140 120">
+                     <path d="M197.3,120l-52.8-52c-6-6-6-17,0-23c7-6,16.9-6,23.9,0l26.9,27l54.8-66c6-7,16-8,23.9-2c7,6,8,16,2,23 L197.3,120z"></path>
+                  </svg>
+                  <span class="card-status-title">309 points achieved</span>
+                </div>
+              </div>  
+            </a>
+          </div>
+        </div>
+      </main>
+      
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- FOOTER ----------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+      
+<!--
+      <footer>
+        <div class="footer-container-div">
+          <p>FOOTER</p>
+        </div>
+      </footer>
+-->
+    </div>  
+  </body>
+
+
+</html>
+
+
