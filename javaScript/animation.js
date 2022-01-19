@@ -1,27 +1,16 @@
-let toggleBtn = document.getElementsByClassName("menu-toggler");
-let cardContainerDiv = document.getElementsByClassName("card-container-div");
+console.log('hello world');
 
-toggleBtn.onchange = function() {
+const toggleBtn1 = document.getElementById('toggleBtn');
+console.log(toggleBtn1);
+
+const cardContainerDiv = document.getElementById('cardLink');
+console.log(cardContainerDiv);
+
+
+toggleBtn1.onchange = function() {
   if (cardContainerDiv.style.display !== "none") {
-    cardContainerDiv.style.display = "none"; 
+    cardContainerDiv.style.display = "none";
   } else {
-    cardContainerDiv.style.display = "block"; 
+    cardContainerDiv.style.display = "block";
   }
-  
-}
-
-
-//const cardContainerDiv = document.getElementById("cardContainerDiv");
-//
-//const navBarMenuToggleBtn = document.getElementById("navBarMenuToggleBtn");
-//navBarMenuToggleBtn.addEventListener("change", myFunction, false);
-//
-//function myFunction () {
-//  let isChecked = navBarMenuToggleBtn.checked;
-//  
-//  if (isChecked) {
-//        cardContainerDiv.style.display = "none"; 
-//  } else {
-//    cardContainerDiv.style.display = "block";
-//  }
-//}
+};
